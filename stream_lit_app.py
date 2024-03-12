@@ -11,7 +11,7 @@ cnx = st.connection('snowflake')
 session = cnx.session()
 
 # load data
-my_dataframe = session.table('ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE').select(col('COLOR_OR_STYLE'),col('DIRECT_URL'),col('PRICE'),COL('SIZE_LIST'))
+my_dataframe = session.table('ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE').select(col('COLOR_OR_STYLE'),col('DIRECT_URL'),col('PRICE'),col('SIZE_LIST'))
 
 pd_df = my_dataframe.to_pandas()
 selected_style = st.selectbox( 'Select a style of Color',
