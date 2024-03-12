@@ -11,11 +11,15 @@ cnx = st.connection('snowflake')
 session = cnx.session()
 
 # load data
-my_dataframe = session.table('ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE').select(col('COLOR_OR_STYLE'),col('DIRECT_URL'))
+my_dataframe = session.table('ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE').select(col('COLOR_OR_STYLE'),col('DIRECT_URL'),col('PRICE'),COL('SIZE_LIST'))
 
 pd_df = my_dataframe.to_pandas()
 selected_style = st.selectbox( 'Select a style of Color',
                     pd_df['COLOR_OR_STYLE'])
 if selected_style:
   img = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['DIRECT_URL'].iloc[0]
+  PRICE = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['PRICE'].iloc[0]
+  SIZE = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['SIZE_LIST'].iloc[0]
   st.image(img)
+  st.write(PRICE)
+  st.write(SIZE)
