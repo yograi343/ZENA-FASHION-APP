@@ -2,7 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 
-st.title('Zena's Amazing Athleisure Catalog')
+st.title("Zena's Amazing Athleisure Catalog")
 st.write('Pick a sweatshirt color or style')
 
 #setup the connection in Streamlit
