@@ -17,5 +17,5 @@ pd_df = my_dataframe.to_pandas()
 selected_style = st.selectbox( 'Select a style of Color',
                     pd_df['COLOR_OR_STYLE'])
 if selected_style:
-  img = pd_df[pd_df.loc[pd_df['COLOR_OR_STYLE']==selected_style,'DIRECT_URL']].iloc[0]
+  img = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['DIRECT_URL'].iloc[0]
   st.image(img)
