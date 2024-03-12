@@ -21,5 +21,6 @@ if selected_style:
   PRICE = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['PRICE'].iloc[0]
   SIZE = pd_df[pd_df['COLOR_OR_STYLE']==selected_style]['SIZE_LIST'].iloc[0]
   st.image(img)
-  st.subheader('Price')st.subheader( PRICE)
+  st.subheader('Price')
+  st.subheader( PRICE)
   st.subheader(SIZE)
