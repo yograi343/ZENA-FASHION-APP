@@ -13,10 +13,9 @@ session = cnx.session()
 # load data
 my_dataframe = session.table('ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE').select(col('COLOR_OR_STYLE'),col('DIRECT_URL'))
 
-
+pd_df = my_dataframe.to_pandas()
 selected_style = st.selectbox( 'Select a style of Color',
-                    my_dataframe)
+                    pd_df['COLOR_OR_STYLE'])
 if selected_style:
-  pd_df = my_dataframe.to_pandas()
   img = pd_df[pd_df.loc[pd_df['COLOR_OR_STYLE']==selected_style,'DIRECT_URL']].iloc[0]
   st.image(img)
